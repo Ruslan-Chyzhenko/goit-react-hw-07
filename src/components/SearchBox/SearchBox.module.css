@@ -1,0 +1,25 @@
+.searchBoxContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 330px;
+  padding: 10px;
+}
+
+.labelSearch {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}

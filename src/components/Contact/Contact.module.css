@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name,
+.number {
+  margin: 0;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border-color: gray;
+  background-color: gray;
+  background-color: #ccc;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
