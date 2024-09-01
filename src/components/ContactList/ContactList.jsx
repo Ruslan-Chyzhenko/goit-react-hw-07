@@ -1,29 +1,41 @@
 import Contact from "../Contact/Contact";
+// import { deleteContact, selectContacts } from "../../redux/contactsSlice";
+import { useSelector } from "react-redux";
+// import { selectNameFilter } from "../../redux/filtersSlice";
+import { selectFilteredContacts } from "../../redux/contactsSlice";
+
 import css from "./ContactList.module.css";
-import { deleteContact, selectContacts } from "../../redux/contactsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { selectNameFilter } from "../../redux/filtersSlice";
+// import { useEffect } from "react";
 
 export default function ContactList() {
-  const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectNameFilter);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  // const dispatch = useDispatch();
+  // const loading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+  // const contact = useSelector(selectContact);
 
-  const visibleContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  // useEffect(() => {
+  //   dispatch(fetshContacts());
+  // }, [dispatch]);
 
-  const handleDeleteContact = (id) => {
-    dispatch(deleteContact(id));
-  };
+  // const handleDeleteContact = (id) => {
+  //   dispatch(deleteContact(id));
+  // };
 
   return (
     <div className={css.gridContainer}>
-      {visibleContacts.map((contact) => (
-        <li className={css.item} key={contact.id}>
-          <Contact data={contact} onDelete={handleDeleteContact} />
-        </li>
-      ))}
+      {filteredContacts.map((contact) => {
+        return (
+          <li className={css.item}>
+            <Contact
+              name={contact.name}
+              number={contact.number}
+              key={contact.id}
+              id={contact.id}
+            />
+          </li>
+        );
+      })}
     </div>
   );
 }
