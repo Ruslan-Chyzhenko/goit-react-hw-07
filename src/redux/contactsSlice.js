@@ -23,19 +23,6 @@ const INITIAL_STATE = {
   },
 };
 
-// const contactsSlice = createSlice({
-//   name: "contacts",
-//   initialState: INITIAL_STATE,
-//   reducers: {
-//     addContact: (state, action) => {
-//       state.items = [...state.items, action.payload];
-//     },
-//     deleteContact: (state, action) => {
-//       state.items = state.items.filter((item) => item.id !== action.payload);
-//     },
-//   },
-// });
-
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: INITIAL_STATE,
@@ -71,17 +58,16 @@ const contactsSlice = createSlice({
   },
 });
 
-export const selectContacts = (state) => state.contacts.items;
-export const selectIsLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
+export const selectContacts = (state) => state.contacts.contacts.items;
+export const selectIsLoading = (state) => state.contacts.contacts.loading;
+export const selectError = (state) => state.contacts.contacts.error;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
-  (contacts, filterValue) =>
+  (contacts, filter) =>
     contacts.filter((contact) => {
-      return contact.name.toLowerCase().includes(filterValue.toLowerCase());
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
     })
 );
 
 export const contactsReducer = contactsSlice.reducer;
-// export const { addContact, deleteContact } = contactsSlice.actions;
