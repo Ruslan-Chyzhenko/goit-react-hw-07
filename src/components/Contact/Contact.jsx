@@ -2,7 +2,7 @@ import css from "./Contact.module.css";
 import { HiUser } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
-export default function Contact({ data: { id, name, number }, onDelete }) {
+export default function Contact({ id, name, number, onDelete }) {
   return (
     <div className={css.container}>
       <div className={css.info}>
